@@ -89,6 +89,7 @@ def mailbox(request, mailbox):
     elif mailbox == "archive":
         emails = Email.objects.filter(
             user=request.user, recipients=request.user, archived=True
+            
         )
     else:
         return JsonResponse({"error": "Invalid mailbox."}, status=400)
